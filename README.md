@@ -45,3 +45,4 @@ The distance is sorted in top n neighbours with maximum distance( i.e. minimum a
     raw_recommends = \
         sorted(list(zip(indices.squeeze().tolist(), distances.squeeze().tolist())), key=lambda x: x[1])[:0:-1]
 ```
+<div style="text-align:center"><img src="https://github.com/avyaktawrat/Evaluat-inator/blob/master/images/knn%20result.PNG" width="400">
