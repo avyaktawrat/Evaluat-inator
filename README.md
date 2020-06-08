@@ -6,13 +6,25 @@ There are two types of recommendation system:-
 <div style="text-align:center"><img src="https://github.com/avyaktawrat/Evaluat-inator/blob/master/images/Types-of-Recommendation-Systems.jpg" width="400">
 
 ### - Content based recommendation system.
-First, the system executes a model-building stage by finding the similarity between all pairs of items. This similarity function can take many forms, such as correlation between ratings or cosine of those rating vectors.
-
+First, the system executes a model-building stage by finding the similarity between all pairs of items. This similarity function can take many forms, such as correlation between ratings or cosine of those rating vectors.<br/>
 Second, the system executes a recommendation stage. It uses the most similar items to a user's already-rated items to generate a list of recommendations.
 
 ### - Collaborative recommendation system
-A user expresses his or her preferences by rating items (e.g. books, movies or CDs) of the system. These ratings can be viewed as an approximate representation of the user's interest in the corresponding domain.
-
-The system matches this user's ratings against other users' and finds the people with most "similar" tastes.
-
+A user expresses his or her preferences by rating items (e.g. books, movies or CDs) of the system. These ratings can be viewed as an approximate representation of the user's interest in the corresponding domain.<br/>
+The system matches this user's ratings against other users' and finds the people with most "similar" tastes.<br/>
 With similar users, the system recommends items that the similar users have rated highly but not yet being rated by this user.
+
+#### Data Set
+Data set of 1M ratings is used taken from [Movie lens](https://grouplens.org/datasets/movielens/).<br/>
+It contains around 1M ratings given by around 6k users on around 4k movies. 
+#### Libraries used 
+### EDA
+
+###
+## KNN based Approach 
+- The data is read in data frame as  *ratings, users*  and  *movies.* These df's are processed as discribed in EDA section.<br/>
+- The processed data is used to create a matrix(namely  *movie_user_mat* ) between moviesId and userId as rows and columns respectively. The values of the cell of matrix( *movie_user_mat[i,j]* ) is the rating given by  j<sup>th</sup> user on i<sup>th</sup> movie.
+- A mapper(namely  *movie_to_idx* ) is created, which maps movie to it's index according to *movies* dataframe.
+
+
+
