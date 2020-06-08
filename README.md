@@ -24,7 +24,7 @@ It contains around 1M ratings given by around 6k users on around 4k movies.
 ## KNN based Approach 
 - The data is read in data frame as  *ratings, users*  and  *movies.* These df's are processed as discribed in EDA section.<br/>
 - The processed data is used to create a matrix(namely  *movie_user_mat* ) between moviesId and userId as rows and columns respectively. The values of the cell of matrix( *movie_user_mat[i, j]* ) is the rating given by  j<sup>th</sup> user on i<sup>th</sup> movie. This matrix is transformed into scipy sparse matrix for easy computation.
-- A mapper(namely  *movie_to_idx* ) is created, which maps movie to it's index according to *movies* dataframe.
+- A mapper(namely  *movie_to_idx* ) is a dictionary which is created, that maps movie to it's index according to *movies* dataframe.
 - The matrix is fed into NearestNeighbors model of sklearn. 'Cosine' similarity metric is used with brute algorithm.
 ```
 # define model
@@ -32,5 +32,16 @@ model_knn = NearestNeighbors(metric='cosine', algorithm='brute', n_neighbors=20,
 # fit
 model_knn.fit(movie_user_mat_sparse)
 ```
-
-
+-  *Fuzzy_matching function*  takes in favorite movie as input and gives out index of most similar movie listed in mapper. The similarity is calculated via fuzz ratio.
+- In the function  *make_recommendation*  the data(i.e. the movie_user_mat) is fit in knn model, it then finds n nearest neighbours of data[idx], where idx given out by  *Fuzzy_matching function* for favorite movie. <br/>
+The distance is sorted in top n neighbours with maximum distance( i.e. minimum angle as cosine similarity is used) is printed.
+```
+    # fit
+    model_knn.fit(data)
+    idx = fuzzy_matching(mapper, fav_movie, verbose=True)
+    
+    distances, indices = model_knn.kneighbors(data[idx], n_neighbors=n_recommendations+1)
+    # get list of raw idx of recommendations
+    raw_recommends = \
+        sorted(list(zip(indices.squeeze().tolist(), distances.squeeze().tolist())), key=lambda x: x[1])[:0:-1]
+```
