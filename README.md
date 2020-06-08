@@ -23,8 +23,14 @@ It contains around 1M ratings given by around 6k users on around 4k movies.
 ###
 ## KNN based Approach 
 - The data is read in data frame as  *ratings, users*  and  *movies.* These df's are processed as discribed in EDA section.<br/>
-- The processed data is used to create a matrix(namely  *movie_user_mat* ) between moviesId and userId as rows and columns respectively. The values of the cell of matrix( *movie_user_mat[i,j]* ) is the rating given by  j<sup>th</sup> user on i<sup>th</sup> movie.
+- The processed data is used to create a matrix(namely  *movie_user_mat* ) between moviesId and userId as rows and columns respectively. The values of the cell of matrix( *movie_user_mat[i, j]* ) is the rating given by  j<sup>th</sup> user on i<sup>th</sup> movie. This matrix is transformed into scipy sparse matrix for easy computation.
 - A mapper(namely  *movie_to_idx* ) is created, which maps movie to it's index according to *movies* dataframe.
-
+- The matrix is fed into NearestNeighbors model of sklearn. 'Cosine' similarity metric is used with brute algorithm.
+```
+# define model
+model_knn = NearestNeighbors(metric='cosine', algorithm='brute', n_neighbors=20, n_jobs=-1)
+# fit
+model_knn.fit(movie_user_mat_sparse)
+```
 
 
