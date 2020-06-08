@@ -3,7 +3,6 @@
 ### Types of recommendation system 
 There are two types of recommendation system:-
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fdata-flair.training%2Fblogs%2Fdata-science-at-netflix%2F&psig=AOvVaw2UeDR0Y4X7DTsEppId7gmK&ust=1591722866380000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjgmKfc8ukCFQAAAAAdAAAAABA" width="48">
 ### - Content based recommendation system.
 First, the system executes a model-building stage by finding the similarity between all pairs of items. This similarity function can take many forms, such as correlation between ratings or cosine of those rating vectors.
 Second, the system executes a recommendation stage. It uses the most similar items to a user's already-rated items to generate a list of recommendations.
