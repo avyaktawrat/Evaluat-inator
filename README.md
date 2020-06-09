@@ -18,14 +18,17 @@ With similar users, the system recommends items that the similar users have rate
 Data set of 1M ratings is used taken from [Movie lens](https://grouplens.org/datasets/movielens/).<br/>
 It contains around 1M ratings given by around 6k users on around 4k movies. 
 #### Libraries used 
-### EDA
+###  Exploratory Data Analysis (EDA)
+The data-set used contains :- <br/>
+1.  Movies dataframe - containes 3883 movies with moviesID, title and genres.
+2. Users dataframe - containes 6040 users with userID, gender, zipcode, age.
+3. Ratings dataframe - containes 1000209 ratings with their userID, movieID and ratings.
 <p float="left">
   <img src="https://github.com/avyaktawrat/Evaluat-inator/blob/master/images/movie%20rating%20with%20number%20of%20rating.png" width="300" />
   <img src="https://github.com/avyaktawrat/Evaluat-inator/blob/master/images/rating%20freq%20of%20movies.png" width="300" /> 
   <img src="https://github.com/avyaktawrat/Evaluat-inator/blob/master/images/rating%20freq%20of%20genres.png" width="300" />
 </p>
-
-
+These plot gives some idea that there are only few movies out of all that are rated highly/ frequently, so for the better performance of model we can remove outlayers, ie those movies that have less than 50 ratings and removing ratings for those movies and removing those users which aren't active or have rated less than 50 movies.
 ###
 ## KNN based Approach 
 - The data is read in data frame as  *ratings, users*  and  *movies.* These df's are processed as discribed in EDA section.<br/>
