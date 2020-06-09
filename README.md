@@ -17,6 +17,7 @@ With similar users, the system recommends items that the similar users have rate
 #### Data Set
 Data set of 1M ratings is used taken from [Movie lens](https://grouplens.org/datasets/movielens/).<br/>
 It contains around 1M ratings given by around 6k users on around 4k movies. 
+
 #### Libraries used 
 ###  Exploratory Data Analysis (EDA)
 The data-set used contains :- <br/>
@@ -29,8 +30,8 @@ The data-set used contains :- <br/>
   <img src="https://github.com/avyaktawrat/Evaluat-inator/blob/master/images/rating%20freq%20of%20genres.png" width="300" />
 </p>
 These plot gives some idea that there are only few movies out of all that are rated highly/ frequently, so for the better performance of model we can remove outlayers, ie those movies that have less than 50 ratings and removing ratings for those movies and removing those users which aren't active or have rated less than 50 movies.
-###
-## KNN based Approach 
+
+### KNN based Approach 
 - The data is read in data frame as  *ratings, users*  and  *movies.* These df's are processed as discribed in EDA section.<br/>
 - The processed data is used to create a matrix(namely  *movie_user_mat* ) between moviesId and userId as rows and columns respectively. The values of the cell of matrix( *movie_user_mat[i, j]* ) is the rating given by  j<sup>th</sup> user on i<sup>th</sup> movie. This matrix is transformed into scipy sparse matrix for easy computation.
 - A mapper(namely  *movie_to_idx* ) is a dictionary which is created, that maps movie to it's index according to *movies* dataframe.
