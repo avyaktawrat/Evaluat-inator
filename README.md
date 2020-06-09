@@ -19,6 +19,12 @@ Data set of 1M ratings is used taken from [Movie lens](https://grouplens.org/dat
 It contains around 1M ratings given by around 6k users on around 4k movies. 
 #### Libraries used 
 ### EDA
+<p float="left">
+  <img src="https://github.com/avyaktawrat/Evaluat-inator/blob/master/images/movie%20rating%20with%20number%20of%20rating.png" width="300" />
+  <img src="https://github.com/avyaktawrat/Evaluat-inator/blob/master/images/rating%20freq%20of%20movies.png" width="300" /> 
+  <img src="https://github.com/avyaktawrat/Evaluat-inator/blob/master/images/rating%20freq%20of%20genres.png" width="300" />
+</p>
+
 
 ###
 ## KNN based Approach 
